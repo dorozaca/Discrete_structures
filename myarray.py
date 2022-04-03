@@ -1,6 +1,5 @@
 import random
 
-
 class Array:
     def __init__(self, capacity, fill_value=None):
         self.items=list()
@@ -27,6 +26,12 @@ class Array:
         container=list(random.randint(20,50) for i in range(50))
         for i in range(len(self.items)):
             self.__setitem__(i, container[i])
+
+    def __sumaitems__(self):
+        sumatoria=0
+        for i in range(len(self.items)):
+            sumatoria+=self.items[i]
+        return sumatoria
        
 
 
@@ -44,3 +49,5 @@ if __name__=='__main__':
     print(Diego.__iter__)
     Diego.__getitem__(4)
     Diego.__setitem__(2,80)
+    print(Diego)
+    print(Diego.__sumaitems__())
