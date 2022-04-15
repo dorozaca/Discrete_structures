@@ -1,3 +1,4 @@
+from email import header
 from hashlib import new
 import random
 
@@ -107,6 +108,48 @@ class Linkedlist:
                 return
             myindex+=1
 
+class CircularLinkedList:
+    def __init__(self):
+        self.head=Node()
+
+    def append(self, value):
+        currentNode=self.head
+        newNode=Node(value, self.head)
+
+        if currentNode.nextNode is None:
+            newNode.nextNode=newNode
+            self.head=newNode
+            
+
+        else:
+            while currentNode.nextNode != self.head:
+                currentNode=currentNode.nextNode
+            currentNode.nextNode=newNode
+
+    def prepend(self, value):
+        currentNode=self.head
+        newNode=Node(value, self.head)
+
+        if currentNode.nextNode is None:
+            newNode.nextNode=newNode
+            self.head=newNode
+
+        else:
+            while currentNode.nextNode != self.head:
+                currentNode=currentNode.nextNode
+            currentNode.nextNode=newNode
+            self.head=newNode
+
+    def printing(self):
+        currentNode=self.head
+        while currentNode.nextNode !=self.head:
+            print(currentNode.value)
+            currentNode=currentNode.nextNode
+        print(currentNode.value)
+
+
+
+
 
             
 if __name__== '__main__':
@@ -150,6 +193,26 @@ if __name__== '__main__':
    print('erasing item in index 1')
    mylink.erasetem(1)
    mylink.display()
+
+   ###### Circular LinkedList Tests #########
+   print('*' *20 + ' Linked List Tests' + '*' *20)
+   mylink=CircularLinkedList()
+   mylink.append('C')
+   mylink.append('D')
+   mylink.append('E')
+   mylink.append('F')
+   mylink.append('G')
+   mylink.printing()
+   print('/n' + 'Imprimiendo')
+
+   mylink.prepend('B')
+   mylink.prepend('A')
+   
+   
+     
+   mylink.printing()
+  
+
 
         
 
