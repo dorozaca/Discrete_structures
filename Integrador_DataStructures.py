@@ -147,6 +147,35 @@ class CircularLinkedList:
             currentNode=currentNode.nextNode
         print(currentNode.value)
 
+class QueueNode:
+
+    def __init__(self):
+        self.head=Node()
+        self.tail=self.head
+
+    def enqueue(self, value):
+        newNode=Node(value)
+        if self.head.value is None:
+            self.head=newNode
+            self.tail=newNode 
+
+        else:
+            self.tail.nextNode=newNode
+            self.tail=newNode
+
+    def dequeue(self):
+        currentNode=self.head
+        subsequent=currentNode.nextNode
+        self.head=subsequent
+
+    def printing(self):
+        currentNode=self.head
+        while currentNode:
+            print(currentNode.value)
+            currentNode=currentNode.nextNode
+
+    
+
 
 
 
@@ -211,6 +240,20 @@ if __name__== '__main__':
    
      
    mylink.printing()
+
+   ###### Queue Tests #########
+   print('*' *20 + ' Queue Tests' + '*' *20)
+   izzy=QueueNode()
+   izzy.enqueue(10)
+   izzy.enqueue(20)
+   izzy.enqueue(30)
+   izzy.enqueue(40)
+   izzy.enqueue(50)
+   izzy.printing()
+   print('Testing removiendo Nodo')
+   izzy.dequeue()
+   izzy.printing()
+
   
 
 
